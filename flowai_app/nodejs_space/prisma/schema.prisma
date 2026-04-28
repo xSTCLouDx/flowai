@@ -1,0 +1,165 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/flowai_app/nodejs_space/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model user {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password      String?   // Nullable for Google SSO-only users
+  name          String
+  avatarurl     String?   @map("avatar_url")
+  ispremium     Boolean   @default(false) @map("is_premium")
+  googleid      String?   @unique @map("google_id")
+  createdat     DateTime  @default(now()) @map("created_at")
+  updatedat     DateTime  @updatedAt @map("updated_at")
+  
+  // Relations
+  tasks                task[]
+  habits               habit[]
+  habitcompletions     habitcompletion[]
+  calendarevents       calendarevent[]
+  aiinsights           aiinsight[]
+  preferences          userpreference?
+  files                file[]
+
+  @@map("users")
+}
+
+model userpreference {
+  id                      String   @id @default(uuid())
+  userid                  String   @unique @map("user_id")
+  notificationsenabled    Boolean  @default(true) @map("notifications_enabled")
+  darkmode                Boolean  @default(true) @map("dark_mode")
+  language                String   @default("pt-BR")
+  aienabled               Boolean  @default(true) @map("ai_enabled")
+  aisuggestpriority       Boolean  @default(true) @map("ai_suggest_priority")
+  ainaturallanguage       Boolean  @default(true) @map("ai_natural_language")
+  createdat               DateTime @default(now()) @map("created_at")
+  updatedat               DateTime @updatedAt @map("updated_at")
+  
+  // Relations
+  user user @relation(fields: [userid], references: [id], onDelete: Cascade)
+
+  @@map("user_preferences")
+}
+
+model task {
+  id                      String    @id @default(uuid())
+  userid                  String    @map("user_id")
+  title                   String
+  description             String?
+  duedate                 DateTime? @map("due_date")
+  priority                String    @default("medium") // high, medium, low
+  category                String?
+  status                  String    @default("pending") // pending, completed
+  isrecurring             Boolean   @default(false) @map("is_recurring")
+  recurrencepattern       String?   @map("recurrence_pattern")
+  reminderminutesbefore   Int?      @map("reminder_minutes_before")
+  completedat             DateTime? @map("completed_at")
+  createdat               DateTime  @default(now()) @map("created_at")
+  updatedat               DateTime  @updatedAt @map("updated_at")
+  
+  // Relations
+  user user @relation(fields: [userid], references: [id], onDelete: Cascade)
+  calendarevents calendarevent[]
+
+  @@index([userid])
+  @@index([userid, status])
+  @@index([userid, duedate])
+  @@index([userid, priority])
+  @@map("tasks")
+}
+
+model habit {
+  id          String   @id @default(uuid())
+  userid      String   @map("user_id")
+  name        String
+  description String?
+  frequency   String   // daily, weekly, custom
+  createdat   DateTime @default(now()) @map("created_at")
+  updatedat   DateTime @updatedAt @map("updated_at")
+  
+  // Relations
+  user        user              @relation(fields: [userid], references: [id], onDelete: Cascade)
+  completions habitcompletion[]
+
+  @@index([userid])
+  @@map("habits")
+}
+
+model habitcompletion {
+  id          String   @id @default(uuid())
+  habitid     String   @map("habit_id")
+  userid      String   @map("user_id")
+  date        String   // YYYY-MM-DD format
+  completedat DateTime @default(now()) @map("completed_at")
+  
+  // Relations
+  habit habit @relation(fields: [habitid], references: [id], onDelete: Cascade)
+  user  user  @relation(fields: [userid], references: [id], onDelete: Cascade)
+
+  @@unique([habitid, date])
+  @@index([habitid])
+  @@index([habitid, date])
+  @@map("habit_completions")
+}
+
+model calendarevent {
+  id         String    @id @default(uuid())
+  userid     String    @map("user_id")
+  title      String
+  startdate  DateTime  @map("start_date")
+  enddate    DateTime  @map("end_date")
+  allday     Boolean   @default(false) @map("all_day")
+  source     String    @default("local") // task, local
+  taskid     String?   @map("task_id")
+  createdat  DateTime  @default(now()) @map("created_at")
+  updatedat  DateTime  @updatedAt @map("updated_at")
+  
+  // Relations
+  user user  @relation(fields: [userid], references: [id], onDelete: Cascade)
+  task task? @relation(fields: [taskid], references: [id], onDelete: SetNull)
+
+  @@index([userid])
+  @@index([userid, startdate, enddate])
+  @@map("calendar_events")
+}
+
+model aiinsight {
+  id        String   @id @default(uuid())
+  userid    String   @map("user_id")
+  type      String   // productivity, suggestion, pattern
+  content   String
+  dismissed Boolean  @default(false)
+  createdat DateTime @default(now()) @map("created_at")
+  
+  // Relations
+  user user @relation(fields: [userid], references: [id], onDelete: Cascade)
+
+  @@index([userid])
+  @@index([userid, createdat])
+  @@map("ai_insights")
+}
+
+model file {
+  id                 String   @id @default(uuid())
+  userid             String   @map("user_id")
+  filename           String   @map("file_name")
+  cloudstoragepath   String   @map("cloud_storage_path")
+  ispublic           Boolean  @default(false) @map("is_public")
+  contenttype        String   @map("content_type")
+  createdat          DateTime @default(now()) @map("created_at")
+  
+  // Relations
+  user user @relation(fields: [userid], references: [id], onDelete: Cascade)
+
+  @@index([userid])
+  @@map("files")
+}
