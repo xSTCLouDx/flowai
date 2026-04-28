@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="390" height="844" viewBox="0 0 390 844"
+     style="font-family: Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif">
+<defs>
+  <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+    <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="rgba(37,99,235,0.12)" flood-opacity="1"/>
+  </filter>
+  <filter id="shadow-sm" x="-3%" y="-3%" width="106%" height="112%">
+    <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="rgba(37,99,235,0.12)" flood-opacity="1"/>
+  </filter>
+  <filter id="shadow-lg" x="-8%" y="-8%" width="116%" height="132%">
+    <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="rgba(37,99,235,0.12)" flood-opacity="1"/>
+  </filter>
+  <linearGradient id="hero-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#2563EB"/>
+    <stop offset="100%" stop-color="#60A5FA"/>
+  </linearGradient>
+  <linearGradient id="hero-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#2563EB"/>
+    <stop offset="100%" stop-color="#60A5FA"/>
+  </linearGradient>
+</defs>
+<rect x="0" y="0" width="390" height="844" rx="0" fill="#F0F4FF"/>
+<!-- Phone Frame -->
+<g id="phone-frame">
+<rect x="0" y="0" width="390" height="844" rx="44" fill="#F0F4FF"/>
+<rect x="0" y="0" width="390" height="844" rx="44" fill="none" stroke="#BFDBFE" stroke-width="2"/>
+<rect x="132.0" y="0" width="126" height="34" rx="17" fill="#1E3A5F" opacity="0.9"/>
+</g>
+<!-- Status Bar -->
+<g id="status-bar">
+<text x="30" y="20" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="14" fill="#1E3A5F" font-weight="600" text-anchor="start">9:41</text>
+<svg x="308" y="6" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 20V4" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg x="330" y="6" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg x="352" y="6" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M17 6H3a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2zM23 13v-2" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</g>
+<!-- Navigation Header -->
+<g id="nav-header">
+<svg x="20" y="60.0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 6h18M3 12h18M3 18h18" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="195.0" y="79.0" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="20" fill="#1E3A5F" font-weight="700" text-anchor="middle">My Tasks</text>
+<svg x="346" y="60.0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<circle cx="366" cy="56" r="4" fill="#DC2626"/>
+</g>
+<!-- Search Bar -->
+<g id="search-bar">
+<g class="input-field">
+<rect x="20" y="108" width="350" height="44" rx="8" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1"/>
+<svg x="32" y="122.0" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 19a8 8 0 100-16 8 8 0 000 16z" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 21l-4.35-4.35" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="56" y="134.55" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="13" fill="#93C5FD" font-weight="normal" text-anchor="start">Search tasks, projects, or tags...</text>
+</g>
+</g>
+<!-- Featured Card -->
+<g id="featured-card">
+<rect x="20" y="168" width="350" height="180" rx="16" fill="url(#hero-grad)"/>
+<text x="40" y="210" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="22" fill="#FFFFFF" font-weight="700" text-anchor="start">Complete Q1 produc…</text>
+<text x="40" y="238.6" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" font-weight="normal" text-anchor="start">Product Strategy • Due today • Hig…</text>
+<g class="button">
+<rect x="40" y="262.6" width="126.98" height="36" rx="100" fill="rgba(255,255,255,0.25)"/>
+<svg x="56.0" y="272.6" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5 12h14M12 5l7 7-7 7" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="115.49000000000001" y="285.15000000000003" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="middle">Start Task</text>
+</g>
+<g>
+<defs><linearGradient id="feat_252_213_g" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#DBEAFE"/>
+  <stop offset="100%" stop-color="#dee7fc"/>
+</linearGradient></defs>
+<rect x="252.0" y="213.0" width="98.00000000000001" height="90.0" rx="8" fill="url(#feat_252_213_g)"/>
+<circle cx="268" cy="275" r="10" fill="#2563EB" opacity="0.05"/>
+<circle cx="336" cy="223" r="4" fill="#2563EB" opacity="0.05"/>
+<circle cx="345" cy="287" r="7" fill="#2563EB" opacity="0.07"/>
+<circle cx="280" cy="222" r="5" fill="#2563EB" opacity="0.06"/>
+<circle cx="301.0" cy="258.0" r="18.9" fill="#2563EB" opacity="0.12"/>
+<svg x="287.5" y="244.5" width="27.0" height="27.0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</g>
+<svg x="330" y="188" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</g>
+<!-- Quick Actions -->
+<g id="quick-actions">
+<rect x="20.0" y="364" width="81.5" height="76" rx="16" fill="#FFFFFF" filter="url(#shadow)"/>
+<svg x="50.75" y="376" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zM16 2v4M8 2v4M3 10h18" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="60.75" y="428" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#3B6BA5" font-weight="500" text-anchor="middle">Today</text>
+<rect x="109.5" y="364" width="81.5" height="76" rx="16" fill="#FFFFFF" filter="url(#shadow)"/>
+<svg x="140.25" y="376" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 22a10 10 0 100-20 10 10 0 000 20z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 6v6l4 2" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="150.25" y="428" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#3B6BA5" font-weight="500" text-anchor="middle">This Week</text>
+<rect x="199.0" y="364" width="81.5" height="76" rx="16" fill="#FFFFFF" filter="url(#shadow)"/>
+<svg x="229.75" y="376" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="239.75" y="428" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#3B6BA5" font-weight="500" text-anchor="middle">High Priority</text>
+<rect x="288.5" y="364" width="81.5" height="76" rx="16" fill="#FFFFFF" filter="url(#shadow)"/>
+<svg x="319.25" y="376" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="329.25" y="428" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#3B6BA5" font-weight="500" text-anchor="middle">All</text>
+</g>
+<!-- Section Header -->
+<g id="section-header">
+<text x="20" y="476" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="16" fill="#1E3A5F" font-weight="700" text-anchor="start">Recent Activity</text>
+<text x="370" y="476" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="12" fill="#2563EB" font-weight="600" text-anchor="end">See All</text>
+</g>
+<!-- Activity List -->
+<g id="activity-list">
+<rect x="20" y="496" width="350" height="72" rx="12" fill="#FFFFFF" filter="url(#shadow)"/>
+<circle cx="52.0" cy="532.0" r="16.0" fill="#EFF6FF"/>
+<svg x="42.0" y="522.0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="80.0" y="528.0" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="13" fill="#1E3A5F" font-weight="500" text-anchor="start">Update API documentation for v3.2 rel…</text>
+<text x="80.0" y="544.2" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="12" fill="#93C5FD" font-weight="normal" text-anchor="start">2h • Engineering</text>
+<svg x="338" y="524.0" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9 18l6-6-6-6" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<circle cx="350" cy="532.0" r="4" fill="#2563EB"/>
+<rect x="20" y="580" width="350" height="72" rx="12" fill="#FFFFFF" filter="url(#shadow)"/>
+<circle cx="52.0" cy="616.0" r="16.0" fill="#EFF6FF"/>
+<svg x="42.0" y="606.0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="80.0" y="612.0" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="13" fill="#1E3A5F" font-weight="500" text-anchor="start">Review design mockups for mobile onbo…</text>
+<text x="80.0" y="628.2" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="12" fill="#93C5FD" font-weight="normal" text-anchor="start">4h • Design System</text>
+<svg x="338" y="608.0" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9 18l6-6-6-6" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<circle cx="350" cy="616.0" r="4" fill="#2563EB"/>
+<rect x="20" y="664" width="350" height="72" rx="12" fill="#FFFFFF" filter="url(#shadow)"/>
+<circle cx="52.0" cy="700.0" r="16.0" fill="#EFF6FF"/>
+<svg x="42.0" y="690.0" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="80.0" y="696.0" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="13" fill="#1E3A5F" font-weight="500" text-anchor="start">Schedule customer feedback sessions (…</text>
+<text x="80.0" y="712.2" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="12" fill="#93C5FD" font-weight="normal" text-anchor="start">Tomorrow • Customer Success</text>
+<svg x="338" y="692.0" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9 18l6-6-6-6" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</g>
+<!-- Tab Bar -->
+<g id="tab-bar">
+<rect x="0" y="761" width="390" height="83" rx="0" fill="#FFFFFF"/>
+<line x1="0" y1="761" x2="390" y2="761" stroke="#BFDBFE" stroke-width="0.5"/>
+<circle cx="39.0" cy="786" r="20" fill="#2563EB" opacity="0.12"/>
+<svg x="29.0" y="776" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 6L9 17l-5-5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="39.0" y="809" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#2563EB" font-weight="600" text-anchor="middle">Tasks</text>
+<svg x="107.0" y="776" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="117.0" y="809" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#93C5FD" font-weight="400" text-anchor="middle">Projects</text>
+<svg x="185.0" y="776" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 5v14M5 12h14" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="195.0" y="809" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#93C5FD" font-weight="400" text-anchor="middle">Add</text>
+<svg x="263.0" y="776" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="273.0" y="809" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#93C5FD" font-weight="400" text-anchor="middle">Activity</text>
+<svg x="341.0" y="776" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<text x="351.0" y="809" font-family="Inter, -apple-system, system-ui, Helvetica, Arial, sans-serif" font-size="10" fill="#93C5FD" font-weight="400" text-anchor="middle">Profile</text>
+<rect x="128.0" y="831" width="134" height="5" rx="3" fill="#1E3A5F" opacity="0.15"/>
+</g>
+</svg>

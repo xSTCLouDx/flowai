@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowAI - Mockups Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1F2937;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #3B82F6;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title .emoji {
+            font-size: 32px;
+        }
+        
+        .mockups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .mockup-card {
+            background: #F9FAFB;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .mockup-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+            border-color: #3B82F6;
+        }
+        
+        .mockup-preview {
+            width: 100%;
+            aspect-ratio: 390 / 844;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #E5E7EB;
+            overflow: hidden;
+        }
+        
+        .mockup-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .mockup-info {
+            padding: 20px;
+        }
+        
+        .mockup-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .mockup-description {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+        
+        .badge-primary {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+        
+        .badge-success {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .feature-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #111827;
+        }
+        
+        .feature-content p {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+        
+        .color-palette {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .color-swatch {
+            text-align: center;
+        }
+        
+        .color-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .color-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .color-hex {
+            font-size: 11px;
+            color: #6B7280;
+            font-family: 'Monaco', monospace;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: white;
+            color: #3B82F6;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            .stats { gap: 20px; }
+            .section { padding: 24px; }
+            .mockups-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 FlowAI Mockups</h1>
+            <p class="subtitle">Mockups de Alta Fidelidade para Aplicativo Móvel de Produtividade com IA</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Telas Criadas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">390×844</span>
+                    <span class="stat-label">Dimensões (px)</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">SVG</span>
+                    <span class="stat-label">Formato Figma</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Onboarding Section -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">👋</span>
+                Onboarding (3 telas)
+            </h2>
+            <div class="mockups-grid">
+                <div class="mockup-card" onclick="window.location.href='onboarding/01_welcome.svg'">
+                    <div class="mockup-preview">
+                        <img src="onboarding/01_welcome.svg" alt="Welcome Screen">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">01. Boas-vindas</div>
+                        <div class="mockup-description">Tela de boas-vindas com logo, hero headline e proposta de valor do FlowAI</div>
+                        <span class="badge badge-primary">Onboarding</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='onboarding/02_features.svg'">
+                    <div class="mockup-preview">
+                        <img src="onboarding/02_features.svg" alt="Features Screen">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">02. Recursos Principais</div>
+                        <div class="mockup-description">Apresentação dos recursos de IA: agendamento inteligente, priorização e detecção de padrões</div>
+                        <span class="badge badge-primary">Onboarding</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='onboarding/03_permissions.svg'">
+                    <div class="mockup-preview">
+                        <img src="onboarding/03_permissions.svg" alt="Permissions Screen">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">03. Permissões</div>
+                        <div class="mockup-description">Solicitação de permissões de calendário e notificações com justificativas claras</div>
+                        <span class="badge badge-primary">Onboarding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Screens Section -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">📱</span>
+                Telas Principais
+            </h2>
+            <div class="mockups-grid">
+                <div class="mockup-card" onclick="window.location.href='dashboard/home_dashboard.svg'">
+                    <div class="mockup-preview">
+                        <img src="dashboard/home_dashboard.svg" alt="Dashboard">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Dashboard / Home</div>
+                        <div class="mockup-description">Visão geral do dia com tarefas prioritárias, eventos próximos e insights de IA</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='tasks/tasks_list.svg'">
+                    <div class="mockup-preview">
+                        <img src="tasks/tasks_list.svg" alt="Tasks List">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Lista de Tarefas</div>
+                        <div class="mockup-description">Visualização completa com filtros, prioridades e FAB para adicionar tarefas</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='tasks/add_edit_task.svg'">
+                    <div class="mockup-preview">
+                        <img src="tasks/add_edit_task.svg" alt="Add Task">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Adicionar / Editar Tarefa</div>
+                        <div class="mockup-description">Formulário completo com campos detalhados e sugestões de agendamento por IA</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='calendar/calendar_view.svg'">
+                    <div class="mockup-preview">
+                        <img src="calendar/calendar_view.svg" alt="Calendar">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Calendário Integrado</div>
+                        <div class="mockup-description">Visualização mensal com tarefas e eventos sincronizados, destacando horários livres</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='ai_assistant/ai_chat.svg'">
+                    <div class="mockup-preview">
+                        <img src="ai_assistant/ai_chat.svg" alt="AI Assistant">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Assistente de IA</div>
+                        <div class="mockup-description">Interface conversacional com sugestões inteligentes e análise de padrões</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='analytics/productivity_analytics.svg'">
+                    <div class="mockup-preview">
+                        <img src="analytics/productivity_analytics.svg" alt="Analytics">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Análise de Produtividade</div>
+                        <div class="mockup-description">Gráficos, estatísticas e insights personalizados sobre padrões de produtividade</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+                
+                <div class="mockup-card" onclick="window.location.href='settings/settings.svg'">
+                    <div class="mockup-preview">
+                        <img src="settings/settings.svg" alt="Settings">
+                    </div>
+                    <div class="mockup-info">
+                        <div class="mockup-title">Configurações</div>
+                        <div class="mockup-description">Perfil, integrações de calendário, notificações e preferências de IA</div>
+                        <span class="badge badge-success">Principal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design System Section -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="emoji">🎨</span>
+                Design System
+            </h2>
+            
+            <h3 style="margin-bottom: 20px; color: #111827;">Paleta de Cores</h3>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #3B82F6;"></div>
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-hex">#3B82F6</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #8B5CF6;"></div>
+                    <div class="color-name">Primary Purple</div>
+                    <div class="color-hex">#8B5CF6</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #10B981;"></div>
+                    <div class="color-name">Success</div>
+                    <div class="color-hex">#10B981</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F59E0B;"></div>
+                    <div class="color-name">Warning</div>
+                    <div class="color-hex">#F59E0B</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #EF4444;"></div>
+                    <div class="color-name">Error</div>
+                    <div class="color-hex">#EF4444</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F9FAFB; border: 2px solid #E5E7EB;"></div>
+                    <div class="color-name">Surface</div>
+                    <div class="color-hex">#F9FAFB</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 40px; margin-bottom: 20px; color: #111827;">Características</h3>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📐</div>
+                    <div class="feature-content">
+                        <h3>Grid System</h3>
+                        <p>Sistema de grid de 8px para alinhamento e consistência visual</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✏️</div>
+                    <div class="feature-content">
+                        <h3>Tipografia Inter</h3>
+                        <p>Fonte Inter com escala de 10px a 32px, pesos Regular a Bold</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h3>Mobile First</h3>
+                        <p>390×844px (iPhone), touch targets de 44px mínimo</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">♿</div>
+                    <div class="feature-content">
+                        <h3>Acessível</h3>
+                        <p>Contraste WCAG AA, indicadores visuais múltiplos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Pronto para Figma</h2>
+            <p>Importe os arquivos SVG diretamente no Figma e comece a prototipar</p>
+            <a href="README.md" class="btn">📖 Ver Documentação Completa</a>
+        </div>
+
+        <footer>
+            <p>FlowAI Mockups v1.0 • Criado com Figma Mockup Skill • 07 de Abril de 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
