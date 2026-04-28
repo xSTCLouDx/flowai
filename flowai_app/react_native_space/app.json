@@ -1,0 +1,95 @@
+{
+  "expo": {
+    "name": "FlowAI",
+    "slug": "abacusai-mobile-apps",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "abacusai1775568809",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3B82F6"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abacusai.flowaiapp.t1775568809",
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "FlowAI needs access to your calendar to sync events and tasks.",
+        "NSRemindersUsageDescription": "FlowAI needs access to reminders to help manage your tasks.",
+        "NSCameraUsageDescription": "FlowAI needs camera access to update your profile picture.",
+        "NSPhotoLibraryUsageDescription": "FlowAI needs photo library access to update your profile picture."
+      },
+      "buildNumber": "1"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#3B82F6"
+      },
+      "package": "com.abacusai.flowaiapp.t1775568809",
+      "permissions": [
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "versionCode": 1,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "abacusai1775568809",
+              "host": "*"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter-Regular.ttf",
+            "./assets/fonts/Inter-Medium.ttf",
+            "./assets/fonts/Inter-SemiBold.ttf",
+            "./assets/fonts/Inter-Bold.ttf",
+            "./assets/fonts/Poppins-Regular.ttf",
+            "./assets/fonts/Poppins-Medium.ttf",
+            "./assets/fonts/Poppins-SemiBold.ttf",
+            "./assets/fonts/Poppins-Bold.ttf"
+          ]
+        }
+      ],
+      "expo-secure-store",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a52132e3-7b24-4c1b-9315-46625e580b8a"
+      }
+    },
+    "owner": "abacus.ai"
+  }
+}
